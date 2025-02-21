@@ -7,7 +7,7 @@ import { DefaultLayout } from '~/components/Layout';
 function App() {
     return (
         <Router>
-            <div style={{ padding: '100px' }}>
+            <div>
                 <Routes>
                     {publicRoutes.map((route, index) => {
 
@@ -30,11 +30,11 @@ function App() {
                                     </Layout>
                                 }
                             />
-                        );
+                        )
                     })}
                 </Routes>
             </div>
-            ;
+           
         </Router>
     );
 }
