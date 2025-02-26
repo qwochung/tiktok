@@ -14,7 +14,7 @@ import Search from "~/pages/Search"
 export const publicRoutes =[
      {path: '/', component: Home }, 
      {path: '/following', component: Following }, 
-     {path: '/profile', component: Profile }, 
+     {path: '/user/:nickName', component: Profile }, 
      {path: '/upload', component: Upload ,layout : HeaderOnly}, 
      {path: '/search', component: Search ,layout : null}, 
 
