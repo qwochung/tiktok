@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router';
 
 import style from './Header.module.scss';
 import images from '~/assets/images';
@@ -20,6 +21,7 @@ import Menu from '~/components/Popper/Menu';
 import { ChatIcon, NotiIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(style);
 const MENU_ITEM = [
@@ -29,27 +31,36 @@ const MENU_ITEM = [
         children: {
             title: 'Language',
             data: [
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'Endlish',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'Japanese',
-                },
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'Thailand',
-                },
-            ],
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'vi', title: 'Tiếng Việt' },
+                { type: 'language', code: 'ja', title: 'Japanese' },
+                { type: 'language', code: 'th', title: 'Thailand' },
+                { type: 'language', code: 'zh', title: 'Chinese' },
+                { type: 'language', code: 'ko', title: 'Korean' },
+                { type: 'language', code: 'fr', title: 'French' },
+                { type: 'language', code: 'de', title: 'German' },
+                { type: 'language', code: 'es', title: 'Spanish' },
+                { type: 'language', code: 'pt', title: 'Portuguese' },
+                { type: 'language', code: 'it', title: 'Italian' },
+                { type: 'language', code: 'ru', title: 'Russian' },
+                { type: 'language', code: 'ar', title: 'Arabic' },
+                { type: 'language', code: 'hi', title: 'Hindi' },
+                { type: 'language', code: 'id', title: 'Indonesian' },
+                { type: 'language', code: 'ms', title: 'Malay' },
+                { type: 'language', code: 'tl', title: 'Tagalog' },
+                { type: 'language', code: 'tr', title: 'Turkish' },
+                { type: 'language', code: 'nl', title: 'Dutch' },
+                { type: 'language', code: 'sv', title: 'Swedish' },
+                { type: 'language', code: 'no', title: 'Norwegian' },
+                { type: 'language', code: 'da', title: 'Danish' },
+                { type: 'language', code: 'fi', title: 'Finnish' },
+                { type: 'language', code: 'pl', title: 'Polish' },
+                { type: 'language', code: 'cs', title: 'Czech' },
+                { type: 'language', code: 'ro', title: 'Romanian' },
+                { type: 'language', code: 'hu', title: 'Hungarian' },
+                { type: 'language', code: 'el', title: 'Greek' },
+                { type: 'language', code: 'he', title: 'Hebrew' },
+            ] ,
         },
     },
     {
@@ -64,8 +75,6 @@ const MENU_ITEM = [
 ];
 
 function Header() {
-
-
     const currentUser = true;
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -106,7 +115,9 @@ function Header() {
         <h2 className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok"></img>
+                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok"></img>
+                    </Link>
                 </div>
 
                 <Search />

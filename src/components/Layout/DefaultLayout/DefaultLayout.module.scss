@@ -3,9 +3,11 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  
 }
 
 .container {
+    margin-top: var(--default-layout-header-height);
     width: var(--default-layout-header-width);
     padding: 0 var(--default-layout-horizontal-spacer);
     min-height: 1000px;
