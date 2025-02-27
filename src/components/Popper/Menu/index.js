@@ -6,6 +6,7 @@ import styles from './Menu.module.scss';
 import { wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +14,7 @@ const cx = classNames.bind(styles);
 
 const defaultFn = ()=>{}
 
-function Menu({ children, items = [], onChange= defaultFn }) {
+function Menu({ children, items = [],hideOnClick = false ,  onChange= defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -40,18 +41,21 @@ function Menu({ children, items = [], onChange= defaultFn }) {
 
     return (
         <Tippy
+        
             interactive
-               delay={[0, 500]}
+            delay={[0, 500]}
+             
             appendTo="parent"
             placement="bottom-end"
             offset={[15, 15]}
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
                         {history.length >1 &&  <Header title="Language" onBack={()=>{
                             setHistory(prev=> prev.slice(0, prev.length -1))
                         }}/>}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
