@@ -16,12 +16,12 @@ import { Link } from 'react-router';
 
 import style from './Header.module.scss';
 import images from '~/assets/images';
-import Button from '~/components/Button';
-import Menu from '~/components/Popper/Menu';
-import { ChatIcon, NotiIcon, UploadIcon } from '~/components/Icons';
-import Image from '~/components/Image';
-import Search from '../Search';
-import routesConfig from '~/config/routes';
+import Button from '~/components/Button/Button';
+import Menu from '~/components/Popper/Menu/Menu';
+import { ChatIcon, NotiIcon, UploadIcon } from '~/components/Icons/Icons';
+import Image from '~/components/Image/Image';
+import Search from '../Search/Search';
+import config from '~/config';
 
 const cx = classNames.bind(style);
 const MENU_ITEM = [
@@ -60,7 +60,7 @@ const MENU_ITEM = [
                 { type: 'language', code: 'hu', title: 'Hungarian' },
                 { type: 'language', code: 'el', title: 'Greek' },
                 { type: 'language', code: 'he', title: 'Hebrew' },
-            ] ,
+            ],
         },
     },
     {
@@ -115,7 +115,7 @@ function Header() {
         <h2 className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="Tiktok"></img>
                     </Link>
                 </div>
@@ -150,7 +150,7 @@ function Header() {
                             <Image
                                 className={cx('user-avatar')}
                                 alt="name"
-                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/e3a0b0421f1ba9252d5ce0e609edaaad~tplv-tiktokx-cropcenter:100:100.jpeg?dr=14579&nonce=58851&refresh_token=6c7c2237207fd23a3add950bd59583e0&x-expires=1740708000&x-signature=LIkfGkIeKn3PuRlIboPLHfGENPg%3D&idc=my&ps=13740610&shcp=81f88b70&shp=a5d48078&t=4d5b0474"
+                                src="https://letsenhance.io/static/a31ab775f44858f1d1b80ee51738f4f3/11499/EnhanceAfter.jpg"
                                 fallback="https://media.istockphoto.com/id/1451587807/vector/user-profile-icon-vector-avatar-or-person-icon-profile-picture-portrait-symbol-vector.jpg?s=612x612&w=0&k=20&c=yDJ4ITX1cHMh25Lt1vI1zBn2cAKKAlByHBvPJ8gEiIg="
                             />
                         ) : (

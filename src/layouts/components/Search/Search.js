@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, fas, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark,   faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useState, useEffect, useRef } from 'react';
 import 'tippy.js/dist/tippy.css';
@@ -10,7 +10,7 @@ import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 import { wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { useDebounce } from '~/hooks';
-import * as searchService from '~/apiService/searchService';
+import * as searchService from '~/service/searchService';
 
 const cx = classNames.bind(style);
 
@@ -31,8 +31,12 @@ function Search() {
 
         const fetchApi = async () => {
             setLoading(true);
+
+             
             const result = await searchService.search(debounce);
             setSearchResult(result);
+
+ 
             setLoading(false);
         };
 
@@ -63,13 +67,13 @@ function Search() {
         <HeadlessTippy
             interactive
             appendTo="parent"
-            visible={showResult && searchResult.length > 0}
+            visible={showResult && searchResult?.length > 0}
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Accounts</h4>
 
-                        {searchResult.map((re) => (
+                        {searchResult?.map((re) => (
                             <AccountItem key={re.id} data={re} />
                         ))}
                     </PopperWrapper>

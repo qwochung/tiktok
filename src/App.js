@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,   } from 'react-router-dom';
 import {Fragment} from 'react'
 
-import { publicRoutes } from '~/routes';
-import { DefaultLayout } from '~/components/Layout';
+import { publicRoutes } from '~/routes/routes';
+import { DefaultLayout } from '~/layouts';
 
 function App() {
     return (
